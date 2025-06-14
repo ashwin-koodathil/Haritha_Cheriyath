@@ -290,7 +290,7 @@
     .timeline::before {
       content: '';
       position: absolute;
-      left: 50px;
+      left: 30px;
       top: 0;
       bottom: 0;
       width: 3px;
@@ -301,10 +301,10 @@
     .timeline-item {
       position: relative;
       margin-bottom: 3rem;
-      padding-left: 120px;
+      padding-left: 100px;
       background: var(--surface-elevated);
       border-radius: 16px;
-      padding: 2rem 2rem 2rem 120px;
+      padding: 2rem 2rem 2rem 100px;
       box-shadow: var(--shadow-md);
       border: 1px solid var(--border);
       transition: all 0.3s ease;
@@ -318,7 +318,7 @@
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -98px;
+      left: -68px;
       top: 2rem;
       width: 20px;
       height: 20px;
@@ -330,13 +330,15 @@
 
     .timeline-date {
       position: absolute;
-      left: -140px;
+      left: -90px;
       top: 1.5rem;
       font-weight: 600;
       color: var(--primary-color);
-      font-size: 0.9rem;
-      text-align: right;
-      width: 80px;
+      font-size: 0.85rem;
+      text-align: center;
+      width: 60px;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
     }
 
     .timeline-content h4 {
@@ -409,6 +411,125 @@
     .research-card p {
       color: var(--text-secondary);
       line-height: 1.6;
+    }
+
+    .publications-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .publication-item {
+      background: var(--surface-elevated);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .publication-item:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .publication-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .publication-authors {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .publication-venue {
+      color: var(--primary-color);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .award-item {
+      background: var(--surface-elevated);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .award-item::before {
+      content: '🏆';
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      opacity: 0.7;
+    }
+
+    .award-item:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .award-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .award-year {
+      color: var(--primary-color);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .talks-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .talk-item {
+      background: var(--surface-elevated);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .talk-item:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .talk-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .talk-venue {
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .talk-year {
+      color: var(--primary-color);
+      font-size: 0.9rem;
+      font-weight: 500;
     }
 
     .scroll-indicator {
@@ -495,6 +616,8 @@
         width: auto;
         margin-bottom: 0.5rem;
         font-size: 0.85rem;
+        writing-mode: initial;
+        text-orientation: initial;
       }
 
       .main-content {
@@ -514,6 +637,10 @@
         width: 100%;
         max-width: 280px;
         justify-content: center;
+      }
+
+      .awards-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -549,7 +676,7 @@
             Prior to my current position, I was a visiting fellow at the prestigious <a href="https://www.tifr.res.in/" target="_blank">Tata Institute of Fundamental Research (TIFR)</a> in Mumbai, where I continued to develop my expertise in advanced mathematical research. I completed my PhD at the <a href="https://www.iiserb.ac.in" target="_blank">Indian Institute of Science Education and Research (IISER) Bhopal</a> under the guidance of Dr. Nikita Agarwal.
           </p>
           <p>
-            Beyond my research, I am actively involved in the academic community. I co-organize the CMM postdoctoral seminar series <a href="#" target="_blank">SIPo</a> with Georgios Kontogeorgiou, fostering collaboration and knowledge exchange among early-career researchers in mathematics.
+            Beyond my research, I am actively involved in the academic community. I co-organize the CMM postdoctoral seminar series <a href="#" target="_blank">SIPo</a> with Georgios Kontogeorgiou, fostering collaboration and knowledge exchange among early-career researchers in mathematics. I have been awarded the prestigious Fondecyt postdoctoral program (2025) and NBHM postdoctoral fellowship (2023).
           </p>
         </div>
         <div class="info-card">
@@ -573,7 +700,7 @@
     </section>
 
     <section class="section">
-      <h3 class="section-title">Research Focus</h3>
+      <h3 class="section-title">Research Interests</h3>
       <div class="research-areas">
         <div class="research-card">
           <h4>Ergodic Theory</h4>
@@ -584,8 +711,12 @@
           <p>Exploring discrete dynamical systems through symbolic representations, bridging the gap between abstract mathematical theory and computational applications.</p>
         </div>
         <div class="research-card">
-          <h4>Open Dynamical Systems</h4>
+          <h4>Open Dynamics</h4>
           <p>Studying systems with holes and escapes, understanding how openings in phase space affect the dynamics and statistical properties of mathematical systems.</p>
+        </div>
+        <div class="research-card">
+          <h4>Topological Dynamics</h4>
+          <p>Examining the topological aspects of dynamical systems, focusing on the geometric and structural properties that govern system behavior.</p>
         </div>
       </div>
     </section>
@@ -633,7 +764,7 @@
             <h4>BS-MS in Mathematics</h4>
             <div class="institution">Indian Institute of Science Education and Research (IISER) Bhopal</div>
             <div class="details">
-              Minor in Physics
+              Major in Mathematics with minor in Physics
             </div>
             <div class="thesis">
               <strong>Thesis:</strong> "Open dynamical systems"<br>
@@ -643,78 +774,71 @@
         </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2025 Haritha Cheriyath. All rights reserved.</p>
-    </div>
-  </footer>
+    <section class="section">
+      <h3 class="section-title">Publications & Preprints</h3>
+      <div class="publications-grid">
+        <div class="publication-item">
+          <div class="publication-title">Asymptoticity, automorphism groups and strong orbit equivalence class</div>
+          <div class="publication-authors">with Sebastián Donoso</div>
+          <div class="publication-venue">Arxiv preprint, arXiv:2504.03533, 2025</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">On Escape rate for subshift with Markov measure</div>
+          <div class="publication-authors">with Nikita Agarwal and Sharvari Neetin Tikekar</div>
+          <div class="publication-venue">Arxiv preprint, arXiv:2401.05118, 2024</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">On the Perron root and eigenvectors of a non-negative integer matrix</div>
+          <div class="publication-authors">with Nikita Agarwal and Sharvari Neetin Tikekar</div>
+          <div class="publication-venue">Linear Algebra Appl., 2024</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">Subshifts of finite type with a hole</div>
+          <div class="publication-authors">with Nikita Agarwal</div>
+          <div class="publication-venue">J. Aust. Math. Soc., 2023</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">On the Perron root and eigenvectors associated with a subshift of finite type</div>
+          <div class="publication-authors">with Nikita Agarwal</div>
+          <div class="publication-venue">Linear Algebra Appl., 2022</div>
+        </div>
+        <div class="publication-item">
+          <div class="publication-title">Product of expansive Markov maps with hole</div>
+          <div class="publication-authors">with Nikita Agarwal</div>
+          <div class="publication-venue">Discrete Contin. Dyn. Syst., 2019</div>
+        </div>
+      </div>
+    </section>
 
-  <script>
-    // Add smooth scrolling for better user experience
-    document.addEventListener('DOMContentLoaded', function() {
-      // Smooth scrolling for anchor links
-      const scrollLinks = document.querySelectorAll('a[href^="#"]');
-      scrollLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        });
-      });
+    <section class="section">
+      <h3 class="section-title">Awards & Achievements</h3>
+      <div class="awards-grid">
+        <div class="award-item">
+          <div class="award-title">Fondecyt Postdoctoral Program</div>
+          <div class="award-year">2025</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">NBHM Postdoctoral Fellowship</div>
+          <div class="award-year">2023</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">Proficiency Medal in Mathematics</div>
+          <div class="award-year">2017</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">CSIR-NET (All India Rank 17)</div>
+          <div class="award-year">2016</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">GATE Qualified</div>
+          <div class="award-year">2017</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">INSPIRE Scholarship (DST, Government of India)</div>
+          <div class="award-year">2012–2017</div>
+        </div>
+      </div>
+    </section>
 
-      // Add scroll-triggered animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, observerOptions);
-
-      // Observe all sections for animation
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        observer.observe(section);
-      });
-
-      // Add scroll indicator click handler
-      const scrollIndicator = document.querySelector('.scroll-indicator');
-      if (scrollIndicator) {
-        scrollIndicator.addEventListener('click', function() {
-          const firstSection = document.querySelector('.main-content');
-          if (firstSection) {
-            firstSection.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        });
-      }
-
-      // Add loading animation to profile image
-      const profileImg = document.querySelector('.profile-img');
-      if (profileImg) {
-        profileImg.addEventListener('load', function() {
-          this.style.opacity = '1';
-        });
-      }
-    });
-  </script>
-</body>
-</html>
+    <section class="section">
