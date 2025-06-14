@@ -1,0 +1,90 @@
+body {
+  font-family: 'Merriweather', serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background-color: #003366;
+  color: #fff;
+  padding: 40px 20px 30px;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 0.3em;
+  font-size: 2em;
+}
+
+header h2 {
+  font-weight: normal;
+  font-size: 1.1em;
+}
+
+header .email a {
+  color: #ffeecc;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.navbar {
+  background-color: #eaeaea;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #ccc;
+}
+
+.navbar a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #003366;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+main section {
+  margin-top: 40px;
+}
+
+section h3 {
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+ul {
+  line-height: 1.6;
+}
+
+.cv-button {
+  display: inline-block;
+  padding: 10px 16px;
+  margin-top: 10px;
+  background-color: #003366;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.cv-button:hover {
+  background-color: #0055aa;
+}
+
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  font-size: 0.9em;
+  color: #777;
+}
