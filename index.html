@@ -3,67 +3,718 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Haritha Cheriyath</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <title>Haritha Cheriyath - Mathematical Researcher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #f59e0b;
+      --accent-color: #ec4899;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --background: #ffffff;
+      --surface: #f8fafc;
+      --surface-elevated: #ffffff;
+      --border: #e5e7eb;
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--background);
+      overflow-x: hidden;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(255,255,255,0.05);stop-opacity:1" /></linearGradient></defs><path d="M0,400 Q300,200 600,400 T1200,400 L1200,800 L0,800 Z" fill="url(%23grad1)"/></svg>') no-repeat center bottom;
+      background-size: cover;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 2rem;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 300;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-description {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      opacity: 0.8;
+      line-height: 1.7;
+    }
+
+    .profile-container {
+      position: relative;
+      margin: 2rem auto;
+      width: 200px;
+      height: 200px;
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.3);
+      box-shadow: var(--shadow-xl);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      backdrop-filter: blur(10px);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .btn-primary:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .section {
+      margin-bottom: 4rem;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--gradient-secondary);
+      border-radius: 2px;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .about-text a:hover {
+      color: var(--accent-color);
+    }
+
+    .about-text a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-color);
+      transition: width 0.3s ease;
+    }
+
+    .about-text a:hover::after {
+      width: 100%;
+    }
+
+    .info-card {
+      background: var(--surface-elevated);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .info-card h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .contact-info {
+      list-style: none;
+    }
+
+    .contact-info li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-info a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: var(--primary-color);
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 3rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--gradient-primary);
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      padding-left: 120px;
+      background: var(--surface-elevated);
+      border-radius: 16px;
+      padding: 2rem 2rem 2rem 120px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover {
+      transform: translateX(10px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -98px;
+      top: 2rem;
+      width: 20px;
+      height: 20px;
+      background: var(--gradient-secondary);
+      border-radius: 50%;
+      border: 4px solid var(--background);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .timeline-date {
+      position: absolute;
+      left: -140px;
+      top: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      font-size: 0.9rem;
+      text-align: right;
+      width: 80px;
+    }
+
+    .timeline-content h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .timeline-content .institution {
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content .details {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .timeline-content .thesis {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    .research-areas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .research-card {
+      background: var(--surface-elevated);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .research-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-secondary);
+    }
+
+    .research-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .research-card h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .research-card p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-indicator::after {
+      content: '↓';
+      color: white;
+      font-size: 2rem;
+      opacity: 0.7;
+    }
+
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--text-secondary);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 80vh;
+        padding: 2rem 1rem;
+      }
+
+      .hero-content {
+        padding: 1rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item {
+        padding-left: 60px;
+      }
+
+      .timeline-item::before {
+        left: 11px;
+      }
+
+      .timeline-date {
+        position: static;
+        text-align: left;
+        width: auto;
+        margin-bottom: 0.5rem;
+        font-size: 0.85rem;
+      }
+
+      .main-content {
+        padding: 2rem 1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
-
   <section class="hero">
-    <div class="hero-text">
-      <h1>Haritha Cheriyath</h1>
-      <h2>Center for Mathematical Modeling (CMM)<br>Universidad de Chile</h2>
+    <div class="hero-content">
+      <div class="profile-container">
+        <img class="profile-img" src="assets/haritha-photo.jpg" alt="Haritha Cheriyath" onerror="this.style.display='none'">
+      </div>
+      <h1 class="hero-title">Haritha Cheriyath</h1>
+      <h2 class="hero-subtitle">Mathematical Researcher & Postdoctoral Fellow</h2>
+      <p class="hero-description">
+        Exploring the fascinating world of ergodic theory, symbolic dynamics, and open dynamical systems at the Center for Mathematical Modeling, Universidad de Chile.
+      </p>
+      <div class="cta-buttons">
+        <a href="assets/haritha-cv.pdf" class="btn btn-primary" target="_blank">View CV</a>
+        <a href="mailto:hcheriyath@cmm.uchile.cl" class="btn btn-secondary">Contact Me</a>
+      </div>
     </div>
-    <img class="profile-img" src="assets/haritha-photo.jpg" alt="Haritha Cheriyath">
+    <div class="scroll-indicator"></div>
   </section>
 
-  <main class="container">
-    <section class="about-me">
-      <p>
-        I am a postdoctoral fellow at <a href="https://www.cmm.uchile.cl/" target="_blank">CMM</a>, working with 
-        <a href="https://sites.google.com/view/sdonoso" target="_blank">Sebastián Donoso</a>.
-        Prior to this, I was a visiting fellow at the 
-        <a href="https://www.tifr.res.in/" target="_blank">Tata Institute of Fundamental Research</a>, Mumbai.  
-        I completed my PhD at the 
-        <a href="https://www.iiserb.ac.in" target="_blank">Indian Institute of Science Education and Research (IISER) Bhopal</a> 
-        under the guidance of <a href="#">Dr. Nikita Agarwal</a>.
-      </p>
-      <p>
-        My research focuses on ergodic theory, symbolic dynamics, and open dynamical systems.  
-        <a href="assets/haritha-cv.pdf" target="_blank">View my CV</a>.
-      </p>
-      <p>
-        I co-organize the CMM postdoctoral seminar series 
-        <a href="#">SIPo</a> with Georgios Kontogeorgiou.
-      </p>
-      <p>
-        Contact: <a href="mailto:hcheriyath@cmm.uchile.cl">hcheriyath@cmm.uchile.cl</a>, 
-        <a href="mailto:harithacheriyath@gmail.com">harithacheriyath@gmail.com</a>
-      </p>
+  <main class="main-content">
+    <section class="section">
+      <h3 class="section-title">About Me</h3>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            I am a postdoctoral fellow at the <a href="https://www.cmm.uchile.cl/" target="_blank">Center for Mathematical Modeling (CMM)</a>, Universidad de Chile, working with <a href="https://sites.google.com/view/sdonoso" target="_blank">Sebastián Donoso</a>. My research lies at the intersection of dynamical systems theory, with a particular focus on understanding the complex behaviors that emerge in mathematical systems over time.
+          </p>
+          <p>
+            Prior to my current position, I was a visiting fellow at the prestigious <a href="https://www.tifr.res.in/" target="_blank">Tata Institute of Fundamental Research (TIFR)</a> in Mumbai, where I continued to develop my expertise in advanced mathematical research. I completed my PhD at the <a href="https://www.iiserb.ac.in" target="_blank">Indian Institute of Science Education and Research (IISER) Bhopal</a> under the guidance of Dr. Nikita Agarwal.
+          </p>
+          <p>
+            Beyond my research, I am actively involved in the academic community. I co-organize the CMM postdoctoral seminar series <a href="#" target="_blank">SIPo</a> with Georgios Kontogeorgiou, fostering collaboration and knowledge exchange among early-career researchers in mathematics.
+          </p>
+        </div>
+        <div class="info-card">
+          <h4>Contact Information</h4>
+          <ul class="contact-info">
+            <li>
+              <span>📧</span>
+              <a href="mailto:hcheriyath@cmm.uchile.cl">hcheriyath@cmm.uchile.cl</a>
+            </li>
+            <li>
+              <span>📧</span>
+              <a href="mailto:harithacheriyath@gmail.com">harithacheriyath@gmail.com</a>
+            </li>
+            <li>
+              <span>📍</span>
+              <span>CMM, Universidad de Chile</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section class="timeline">
-      <h3>Education & Research Experience</h3>
-      <ul>
-        <li><span>2023–Present</span><br>Postdoctoral Fellow, CMM, Universidad de Chile</li>
-        <li><span>2021–2023</span><br>Visiting Fellow, TIFR, Mumbai</li>
-        <li>
-          <span>2017–2021</span><br>PhD in Mathematics, IISER Bhopal<br>
-          <em>Thesis:</em> Shift spaces with a hole - Properties and Applications<br>
-          <em>Supervisor:</em> Dr. Nikita Agarwal
-        </li>
-        <li>
-          <span>2012–2017</span><br>BS-MS in Mathematics (minor in Physics), IISER Bhopal<br>
-          <em>Thesis:</em> Open dynamical systems<br>
-          <em>Supervisor:</em> Dr. Nikita Agarwal
-        </li>
-      </ul>
+    <section class="section">
+      <h3 class="section-title">Research Focus</h3>
+      <div class="research-areas">
+        <div class="research-card">
+          <h4>Ergodic Theory</h4>
+          <p>Investigating the long-term behavior of dynamical systems and their statistical properties, with applications to understanding chaos and regularity in mathematical models.</p>
+        </div>
+        <div class="research-card">
+          <h4>Symbolic Dynamics</h4>
+          <p>Exploring discrete dynamical systems through symbolic representations, bridging the gap between abstract mathematical theory and computational applications.</p>
+        </div>
+        <div class="research-card">
+          <h4>Open Dynamical Systems</h4>
+          <p>Studying systems with holes and escapes, understanding how openings in phase space affect the dynamics and statistical properties of mathematical systems.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3 class="section-title">Education & Experience</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2023–Present</div>
+          <div class="timeline-content">
+            <h4>Postdoctoral Fellow</h4>
+            <div class="institution">Center for Mathematical Modeling (CMM), Universidad de Chile</div>
+            <div class="details">
+              Working with Sebastián Donoso on advanced problems in ergodic theory and dynamical systems. Contributing to cutting-edge research in mathematical modeling and its applications.
+            </div>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-date">2021–2023</div>
+          <div class="timeline-content">
+            <h4>Visiting Fellow</h4>
+            <div class="institution">Tata Institute of Fundamental Research (TIFR), Mumbai</div>
+            <div class="details">
+              Conducted independent research and collaborated with leading mathematicians in the field of dynamical systems theory and mathematical physics.
+            </div>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-date">2017–2021</div>
+          <div class="timeline-content">
+            <h4>PhD in Mathematics</h4>
+            <div class="institution">Indian Institute of Science Education and Research (IISER) Bhopal</div>
+            <div class="thesis">
+              <strong>Thesis:</strong> "Shift spaces with a hole - Properties and Applications"<br>
+              <strong>Supervisor:</strong> Dr. Nikita Agarwal
+            </div>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-date">2012–2017</div>
+          <div class="timeline-content">
+            <h4>BS-MS in Mathematics</h4>
+            <div class="institution">Indian Institute of Science Education and Research (IISER) Bhopal</div>
+            <div class="details">
+              Minor in Physics
+            </div>
+            <div class="thesis">
+              <strong>Thesis:</strong> "Open dynamical systems"<br>
+              <strong>Supervisor:</strong> Dr. Nikita Agarwal
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Haritha Cheriyath</p>
+    <div class="footer-content">
+      <p>&copy; 2025 Haritha Cheriyath. All rights reserved.</p>
+    </div>
   </footer>
 
+  <script>
+    // Add smooth scrolling for better user experience
+    document.addEventListener('DOMContentLoaded', function() {
+      // Smooth scrolling for anchor links
+      const scrollLinks = document.querySelectorAll('a[href^="#"]');
+      scrollLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Add scroll-triggered animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections for animation
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(section);
+      });
+
+      // Add scroll indicator click handler
+      const scrollIndicator = document.querySelector('.scroll-indicator');
+      if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+          const firstSection = document.querySelector('.main-content');
+          if (firstSection) {
+            firstSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      }
+
+      // Add loading animation to profile image
+      const profileImg = document.querySelector('.profile-img');
+      if (profileImg) {
+        profileImg.addEventListener('load', function() {
+          this.style.opacity = '1';
+        });
+      }
+    });
+  </script>
 </body>
 </html>
